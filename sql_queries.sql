@@ -7,8 +7,13 @@ select employee.emp_no, employee.last_name, employee.first_name, employee.sex, s
 -- 2. List first name, last name, and hire date for employees who were hired in 1986.
 select employee.first_name, employee.last_name, employee.hire_date from employee
 where extract(year from hire_date) = 1986;
--- 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
+-- 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+select department.dept_no, department.dept_name, dept_manager.emp_no, employee.last_name, employee.first_name
+	from department 
+	join 
+	on employee.emp_no = salary.emp_no;
+	
 -- 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
 -- 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."

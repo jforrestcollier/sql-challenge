@@ -1,8 +1,12 @@
--- 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
-select emp_no, last_name, first_name, sex from employee;
+   -- 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
+select employee.emp_no, employee.last_name, employee.first_name, employee.sex, salary.salary 
+	from employee
+	join salary as salary
+	on employee.emp_no = salary.emp_no;
 	
 -- 2. List first name, last name, and hire date for employees who were hired in 1986.
-
+select employee.first_name, employee.last_name, employee.hire_date from employee
+where extract(year from hire_date) = 1986;
 -- 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
 -- 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
